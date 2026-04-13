@@ -28,9 +28,10 @@ def get_weather():
         data = resp.json()
         return jsonify({
             "city": data["name"],
-            "temperature_c": data["main"]["temp"],
+            "temp_celsius": data["main"]["temp"],
+            "humidity": data["main"]["humidity"],
             "description": data["weather"][0]["description"]
-        })
+})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
